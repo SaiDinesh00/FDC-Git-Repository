@@ -1,0 +1,30 @@
+clear all;
+close all;
+clc;
+
+%% Time information
+
+count   = 0;                                % Counting number of iterations
+t0      = 60;                                % Initial time in seconds
+tf      = 65;                               % Final time in seconds
+dt      = 0.01;                             % time step
+N       = floor((tf-t0)/dt) + 1;            % No. of iterations
+t       = zeros(N, 1);                      % Time vector initialization
+t(1)    = t0;
+
+Initial_conditions_new;
+
+%% Iteration begins
+
+for k = 1:N-1
+    
+    
+    % %% Desired trajectory for the fixed wing
+    % [psi_d(1, k), Xd(1:3, k+1), Xd_dot(1:3, k)] = Desired_trajectory(t(k), Xd(1:3, k), dt, V_w_d);
+
+   M_Quad_des(:, k) = Inner_loop_new(X(:, k), Xd(:, k), M_wing);
+
+   Control_input_new(:, )
+  
+end
+Plotting;
